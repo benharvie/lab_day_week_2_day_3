@@ -5,8 +5,8 @@ require_relative '../pub.rb'
 
 class TestCustomer < MiniTest::Test
   def setup
-    @drink = Drink.new({ name: "Cola", price: 1.50 })
-    @customer = Customer.new("Sly Stalone", 50.00)
+    @drink = Drink.new({ name: "Whisky", price: 3.50, level: 5})
+    @customer = Customer.new("Sly Stalone", 50.00, 21)
   end
 
   def test_customers_name
@@ -19,6 +19,11 @@ class TestCustomer < MiniTest::Test
 
   def test_buy_drink
     @customer.buy_drink(@drink)
-    assert_equal(48.50, @customer.wallet)
+    assert_equal(46.50, @customer.wallet)
+  end
+
+  def test_adds_level
+    @customer.buy_drink(@drink)
+    assert_equal(5, @customer.level)
   end
 end
