@@ -5,11 +5,7 @@ require_relative '../pub.rb'
 
 class TestCustomer < MiniTest::Test
   def setup
-    cola = {
-      name: "Cola",
-      price: 1.50
-    }
-    @drink = Drink.new(cola)
+    @drink = Drink.new({ name: "Cola", price: 1.50 })
     @customer = Customer.new("Sly Stalone", 50.00)
   end
 
