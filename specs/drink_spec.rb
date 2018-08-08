@@ -4,7 +4,11 @@ require_relative '../drink.rb'
 
 class TestDrink < MiniTest::Test
   def setup
-    @drink = Drink.new("Cola", 1.50)
+    cola = {
+      name: "Cola",
+      price: 1.50
+    }
+    @drink = Drink.new(cola)
   end
 
   def test_drink_has_name
